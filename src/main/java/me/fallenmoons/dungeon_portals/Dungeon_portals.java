@@ -2,6 +2,7 @@ package me.fallenmoons.dungeon_portals;
 
 import com.mojang.logging.LogUtils;
 import me.fallenmoons.dungeon_portals.init.BlockInit;
+import me.fallenmoons.dungeon_portals.init.ItemInit;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -44,5 +45,6 @@ public class Dungeon_portals {
     public Dungeon_portals() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         BlockInit.BLOCKS.register(modEventBus);
+        ItemInit.ITEMS.register(modEventBus);
     }
 }

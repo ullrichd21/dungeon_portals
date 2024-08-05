@@ -1,5 +1,7 @@
 {
   "variants": {
-
+    "": {
+      "model": "dungeon_portals:block/dungeon_portal"
+    }
   }
 }
