@@ -1,0 +1,17 @@
+{
+  "config": {
+    "top_material": {
+      "Properties": {
+        "snowy": "false"
+      },
+      "Name": "minecraft:dead_tube_coral_block"
+    },
+    "under_material": {
+      "Name": "minecraft:dead_horn_coral_block"
+    },
+    "underwater_material": {
+      "Name": "minecraft:blackstone"
+    }
+  },
+  "type": "minecraft:default"
+}

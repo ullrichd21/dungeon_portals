@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.fallenmoons.dungeon_portals.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "dungeon_portals.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
