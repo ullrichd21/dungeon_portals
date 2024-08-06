@@ -1,6 +1,7 @@
 package me.fallenmoons.dungeon_portals.init;
 
 import me.fallenmoons.dungeon_portals.Dungeon_portals;
+import me.fallenmoons.dungeon_portals.blocks.DungeonPortalBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -13,5 +14,5 @@ public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Dungeon_portals.MODID);
 
     public static final RegistryObject<Block> DUNGEON_PORTAL = BLOCKS.register("dungeon_portal",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
+            () -> new DungeonPortalBlock(BlockBehaviour.Properties.copy(Blocks.DIRT)));
 }

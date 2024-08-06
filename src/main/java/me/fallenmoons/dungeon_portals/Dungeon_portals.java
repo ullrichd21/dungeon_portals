@@ -2,14 +2,19 @@ package me.fallenmoons.dungeon_portals;
 
 import com.mojang.logging.LogUtils;
 import me.fallenmoons.dungeon_portals.init.BlockInit;
+import me.fallenmoons.dungeon_portals.init.CreativeTabInit;
+import me.fallenmoons.dungeon_portals.init.DimensionInit;
 import me.fallenmoons.dungeon_portals.init.ItemInit;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -31,6 +36,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
+
 import static me.fallenmoons.dungeon_portals.init.BlockInit.BLOCKS;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -40,11 +46,16 @@ public class Dungeon_portals {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "dungeon_portals";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
+
+    public static final ResourceKey<Level> DUNGEON_DIMENSION = ResourceKey.create(Registries.DIMENSION, new ResourceLocation(MODID, "dungeon"));
 
     public Dungeon_portals() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        BlockInit.BLOCKS.register(modEventBus);
-        ItemInit.ITEMS.register(modEventBus);
+
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        BlockInit.BLOCKS.register(bus);
+        ItemInit.ITEMS.register(bus);
+        CreativeTabInit.TABS.register(bus);
+        DimensionInit.init();
     }
 }
