@@ -1,10 +1,7 @@
 package me.fallenmoons.dungeon_portals;
 
 import com.mojang.logging.LogUtils;
-import me.fallenmoons.dungeon_portals.init.BlockInit;
-import me.fallenmoons.dungeon_portals.init.CreativeTabInit;
-import me.fallenmoons.dungeon_portals.init.DimensionInit;
-import me.fallenmoons.dungeon_portals.init.ItemInit;
+import me.fallenmoons.dungeon_portals.init.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -54,6 +51,7 @@ public class Dungeon_portals {
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BlockInit.BLOCKS.register(bus);
+        BlockEntityInit.BLOCK_ENTITIES.register(bus);
         ItemInit.ITEMS.register(bus);
         CreativeTabInit.TABS.register(bus);
         DimensionInit.init();

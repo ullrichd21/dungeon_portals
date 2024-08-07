@@ -18,7 +18,7 @@ public class ItemInit {
 //    public static final RegistryObject<Block> DUNGEON_PORTAL = BLOCKS.register("dungeon_portal",
 //            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT)));
     public static final RegistryObject<BlockItem> DUNGEON_PORTAL_ITEM = CreativeTabInit.addToTab(ITEMS.register("dungeon_portal",
-        () -> new BlockItem(BlockInit.DUNGEON_PORTAL.get(),
+        () -> new BlockItem(BlockInit.DUNGEON_PORTAL_BLOCK.get(),
                 new Item.Properties().rarity(Rarity.EPIC))));
 
 }
