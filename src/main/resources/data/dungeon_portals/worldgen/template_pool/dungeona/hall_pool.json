@@ -1,0 +1,24 @@
+{
+  "name": "dungeon_portals:dungeona/hall_pool",
+  "fallback": "dungeon_portals:dungeona/fallback_pool",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "dungeon_portals:dungeona/dungeona_crossway_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "dungeon_portals:dungeona/dungeona_hall_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
