@@ -1,7 +1,10 @@
 package me.fallenmoons.dungeon_portals;
 
 import com.mojang.logging.LogUtils;
+import me.fallenmoons.dungeon_portals.commands.ReturnPlayersCommand;
+import me.fallenmoons.dungeon_portals.dungeons.DungeonEventListener;
 import me.fallenmoons.dungeon_portals.init.*;
+import me.fallenmoons.dungeon_portals.networking.ModNetworkHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -50,10 +53,32 @@ public class Dungeon_portals {
     public Dungeon_portals() {
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         BlockInit.BLOCKS.register(bus);
         BlockEntityInit.BLOCK_ENTITIES.register(bus);
         ItemInit.ITEMS.register(bus);
         CreativeTabInit.TABS.register(bus);
         DimensionInit.init();
     }
+
+    private void setup(final FMLCommonSetupEvent event) {
+        ModNetworkHandler.registerMessages();
+    }
 }
+
+
+/*
+Lazy to do list:
+
+TODO: Add a way to automatically select which dungeon to generate.
+TODO: Add crafting recipes for the dungeon portal block.
+TODO: Add a way to teleport multiple players to the dungeon.
+TODO: Add a way to complete the dungeon.
+TODO: Add boss mobs to the dungeon.
+TODO: Add loot to the dungeon.
+TODO: Add regular mobs to the dungeon.
+TODO: Add dungeon resources to the dungeon.
+TODO: Confirm saving is working.
+TODO: Add a way to leave the dungeon (Command?).
+
+ */

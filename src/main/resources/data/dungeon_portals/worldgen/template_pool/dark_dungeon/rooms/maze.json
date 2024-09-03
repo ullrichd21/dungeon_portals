@@ -1,0 +1,15 @@
+{
+  "name": "dungeon_portals:dark_dungeon/rooms/maze",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "dungeon_portals:dark_dungeon/rooms/maze/allway",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -21,4 +21,15 @@ public class ItemInit {
         () -> new BlockItem(BlockInit.DUNGEON_PORTAL_BLOCK.get(),
                 new Item.Properties().rarity(Rarity.EPIC))));
 
+    public static final RegistryObject<BlockItem> DUNGEON_SPAWN_BLOCK_ITEM = CreativeTabInit.addToTab(ITEMS.register("dungeon_spawn_block",
+            () -> new BlockItem(BlockInit.DUNGEON_SPAWN_BLOCK.get(),
+                    new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> DUNGEON_BOSS_SPAWN_BLOCK_ITEM = CreativeTabInit.addToTab(ITEMS.register("dungeon_boss_spawn_block",
+            () -> new BlockItem(BlockInit.DUNGEON_BOSS_SPAWN_BLOCK.get(),
+                    new Item.Properties())));
+
+    public static final RegistryObject<BlockItem> DUNGEON_LOOT_BLOCK_ITEM = CreativeTabInit.addToTab(ITEMS.register("dungeon_loot_block",
+            () -> new BlockItem(BlockInit.DUNGEON_LOOT_BLOCK.get(),
+                    new Item.Properties())));
 }
