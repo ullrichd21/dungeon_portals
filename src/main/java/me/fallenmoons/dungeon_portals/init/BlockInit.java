@@ -14,5 +14,14 @@ public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Dungeon_portals.MODID);
 
     public static final RegistryObject<DungeonPortalBlock> DUNGEON_PORTAL_BLOCK = BLOCKS.register("dungeon_portal",
-            () -> new DungeonPortalBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new DungeonPortalBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> DUNGEON_SPAWN_BLOCK = BLOCKS.register("dungeon_spawn_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> DUNGEON_BOSS_SPAWN_BLOCK = BLOCKS.register("dungeon_boss_spawn_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> DUNGEON_LOOT_BLOCK = BLOCKS.register("dungeon_loot_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 }

@@ -1,4 +1,7 @@
 {
   "block.dungeon_portals.dungeon_portal": "Dungeon Portal",
-  "itemGroup.dungeon_portals_tab": "Dungeon Portals Tab"
+  "itemGroup.dungeon_portals_tab": "Dungeon Portals Tab",
+  "block.dungeon_portals.dungeon_spawn_block": "Dungeon Spawn Block",
+  "block.dungeon_portals.dungeon_boss_spawn_block": "Dungeon Boss Spawn Block",
+  "block.dungeon_portals.dungeon_loot_block": "Dungeon Loot Block"
 }

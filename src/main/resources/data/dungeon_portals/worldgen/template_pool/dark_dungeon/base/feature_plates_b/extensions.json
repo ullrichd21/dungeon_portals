@@ -1,0 +1,24 @@
+{
+  "name": "dungeon_portals:dark_dungeon/base/feature_plates_b/extensions",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "dungeon_portals:dark_dungeon/base/feature_plate_b/extension0",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 10,
+      "element": {
+        "location": "dungeon_portals:dark_dungeon/base/feature_plate_a/extension1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dungeon_portals:block/dungeon_boss_spawn_block"
+    }
+  }
+}

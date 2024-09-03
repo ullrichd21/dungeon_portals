@@ -1,7 +1,9 @@
 package me.fallenmoons.dungeon_portals.dungeons;
 
 import me.fallenmoons.dungeon_portals.Dungeon_portals;
+import me.fallenmoons.dungeon_portals.init.BlockInit;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +15,7 @@ import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -34,16 +37,20 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public class DungeonGenerator {
-    public static void generateDungeonStructure(ServerLevel level, BlockPos pos) {
-        if (!generate(level,64, new BlockPos(0, 0 , 0), false)) {
+    public static void generateDungeonStructure(ServerLevel level, BlockPos pos, Dungeon dungeon) {
+
+        boolean success = generate(level,64, pos, false, dungeon);
+
+        if (!success) {
             Dungeon_portals.LOGGER.debug("Failed to gen dungeon");
         }
     }
 
-    private static boolean generate(ServerLevel level, int size, BlockPos pos, boolean keepJigsaws) {
+    private static boolean generate(ServerLevel level, int size, BlockPos pos, boolean keepJigsaws, Dungeon dungeon) {
+
         HolderGetter<StructureTemplatePool> poolHolderGetter = level.holderLookup(Registries.TEMPLATE_POOL);
-        Holder<StructureTemplatePool> poolHolder = poolHolderGetter.getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, new ResourceLocation(Dungeon_portals.MODID, "dungeona/dungeona_spawn")));
-        ResourceLocation recLoc = new ResourceLocation(Dungeon_portals.MODID, "spawn");
+        Holder<StructureTemplatePool> poolHolder = poolHolderGetter.getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, new ResourceLocation(Dungeon_portals.MODID, "dark_dungeon/spawn")));
+        ResourceLocation recLoc = new ResourceLocation(Dungeon_portals.MODID, "start");
         ChunkGenerator chunkGenerator = level.getChunkSource().getGenerator();
         StructureTemplateManager structureTemplateManager = level.getStructureManager();
         StructureManager structureAccessor = level.structureManager();
@@ -76,11 +83,22 @@ public class DungeonGenerator {
                             BlockState state = level.getBlockState(checkPos);
                             if (!state.isAir()) {
 //                                Block block = state.getBlock();
-                                Dungeon_portals.LOGGER.error(state.toString());
+//                                Dungeon_portals.LOGGER.error(state.toString());
+                                if (state.is(BlockInit.DUNGEON_SPAWN_BLOCK.get())) {
+                                    dungeon.setSpawnPos(checkPos);
+                                    level.setBlock(checkPos, Blocks.AIR.defaultBlockState(), 3);
+                                } else if (state.is(Blocks.DIAMOND_BLOCK)) {
+                                    if (dungeon.getSpawnPos() == null || dungeon.getSpawnPos().equals(BlockPos.ZERO)) {
+                                        dungeon.setSpawnPos(checkPos);
+                                        System.out.println("Spawn pos set to: " + checkPos.above());
+//                                        level.setBlock(checkPos, Blocks.AIR.defaultBlockState(), 3);
+                                    }
+                                }
 //                                if (state.isOf(BlockInit.DUNGEON_SPAWNER)) {
 //                                    spawnerPosEntityIdMap.put(checkPos, ((DungeonSpawnerEntity) world.getBlockEntity(checkPos)).getLogic().getEntityId());
 //                                }
                             }
+
                         }
                     }
                 }
